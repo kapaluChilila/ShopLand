@@ -1,0 +1,263 @@
+// ...existing code...
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ShopLand — Home</title>
+  <style>
+    :root{
+      --brand:#232f3e;
+      --accent:#ff9900;
+      --muted:#666;
+      --card-bg:#fff;
+      --bg:#f3f4f6;
+      --max-width:1200px;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;margin:0;background:var(--bg);color:#111}
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 16px}
+    header{background:linear-gradient(180deg,#131921,rgba(19,25,33,0.95));color:#fff;padding:12px 0;position:sticky;top:0;z-index:40}
+    .topbar{display:flex;align-items:center;gap:12px}
+    .logo{font-weight:700;color:var(--accent);font-size:22px;margin-right:8px}
+    .logo small{display:block;font-size:10px;color:#fff}
+    .search-bar{flex:1;display:flex;align-items:center;background:#fff;padding:6px;border-radius:4px;overflow:hidden}
+    .search-bar select{border:0;padding:8px;background:#f4f4f4;border-right:1px solid #e5e5e5}
+    .search-bar input{flex:1;border:0;padding:8px 10px;font-size:15px}
+    .search-bar button{background:var(--accent);border:0;color:#111;padding:8px 14px;cursor:pointer}
+    .nav-actions{display:flex;gap:16px;align-items:center;margin-left:12px}
+    .nav-actions a{color:#fff;text-decoration:none;font-size:14px}
+    /* Hero / carousel */
+    .hero{margin-top:12px;border-radius:6px;overflow:hidden}
+    .carousel{position:relative;background:#fff;border-radius:6px;height:300px;display:flex;align-items:center}
+    .carousel .slide{min-width:100%;height:100%;display:flex;align-items:center;justify-content:space-between;padding:24px;gap:24px}
+    .carousel img{max-height:220px;border-radius:6px}
+    .carousel .info{max-width:60%}
+    .carousel .info h2{margin:0 0 10px 0;font-size:28px;color:var(--brand)}
+    .carousel .info p{margin:0;color:var(--muted)}
+    .carousel .dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:8px}
+    .dot{width:10px;height:10px;border-radius:50%;background:#ddd;cursor:pointer}
+    .dot.active{background:var(--accent)}
+    /* grids */
+    section{margin:20px 0}
+    .section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+    .card{background:var(--card-bg);padding:12px;border-radius:6px;box-shadow:0 1px 3px rgba(0,0,0,0.06);display:flex;flex-direction:column;gap:8px}
+    .card img{width:100%;height:160px;object-fit:contain;background:#fff;border-radius:6px}
+    .title{font-size:14px;color:#111;height:36px;overflow:hidden}
+    .price{font-weight:700;color:var(--brand)}
+    .rating{color:#f5a623;font-size:13px}
+    .cta{margin-top:auto;display:flex;gap:8px}
+    .btn{padding:8px 10px;border-radius:4px;border:0;cursor:pointer}
+    .btn.primary{background:var(--accent);color:#111}
+    .btn.ghost{background:#f2f2f2}
+    footer{background:#fff;padding:20px 0;margin-top:24px}
+    footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+    footer a{display:block;color:var(--muted);text-decoration:none;font-size:13px;margin:6px 0}
+    @media (max-width:720px){.carousel{height:220px}.carousel .info{display:none}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container topbar" role="banner">
+      <div style="display:flex;align-items:center;gap:8px">
+        <div class="logo" aria-hidden="true">ShopLand</div>
+        <div style="color:#fff;font-size:13px">Deliver to <strong style="color:#fff;margin-left:6px">United States</strong></div>
+      </div>
+
+      <div class="search-bar" role="search" aria-label="Site search">
+        <select aria-label="Category">
+          <option>All</option>
+          <option>Electronics</option>
+          <option>Books</option>
+          <option>Home</option>
+        </select>
+        <input id="searchInput" type="search" placeholder="Search products, brands and more" aria-label="Search input"/>
+        <button id="searchBtn" aria-label="Search">Search</button>
+      </div>
+
+      <nav class="nav-actions" aria-label="Top navigation">
+        <a href="#" title="Account">Hello, Sign in</a>
+        <a href="#" title="Orders">Orders</a>
+        <a href="#" title="Cart">Cart (0)</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" role="main">
+    <!-- Hero carousel -->
+    <div class="hero">
+      <div class="carousel" id="carousel">
+        <div class="slide" data-index="0">
+          <div class="info">
+            <h2>Featured deals on electronics</h2>
+            <p>Discover discounts across headphones, laptops, and smart devices. Limited time offers.</p>
+            <div style="margin-top:12px">
+              <button class="btn primary">Shop Deals</button>
+              <button class="btn ghost">See more</button>
+            </div>
+          </div>
+          <img src="https://via.placeholder.com/420x220?text=Electronics+Sale" alt="Electronics sale">
+        </div>
+
+        <div class="slide" data-index="1">
+          <div class="info">
+            <h2>Home essentials under $25</h2>
+            <p>Everyday low prices on home, kitchen and living supplies.</p>
+            <div style="margin-top:12px">
+              <button class="btn primary">Shop Home</button>
+            </div>
+          </div>
+          <img src="https://via.placeholder.com/420x220?text=Home+Essentials" alt="Home essentials">
+        </div>
+
+        <div class="slide" data-index="2">
+          <div class="info">
+            <h2>Top picks for you</h2>
+            <p>Hand-picked items based on trending products and customer favorites.</p>
+            <div style="margin-top:12px">
+              <button class="btn primary">See Picks</button>
+            </div>
+          </div>
+          <img src="https://via.placeholder.com/420x220?text=Top+Picks" alt="Top picks">
+        </div>
+
+        <div class="dots" id="dots" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <!-- Deals grid -->
+    <section aria-label="Today's deals">
+      <div class="section-header">
+        <h3 style="margin:0">Today's Deals</h3>
+        <a href="#" style="color:var(--accent);text-decoration:none">See all</a>
+      </div>
+
+      <div class="grid" id="dealsGrid">
+        <!-- product cards populated below -->
+      </div>
+    </section>
+
+    <!-- Best sellers -->
+    <section aria-label="Best sellers">
+      <div class="section-header">
+        <h3 style="margin:0">Best Sellers</h3>
+        <a href="#" style="color:var(--accent);text-decoration:none">View more</a>
+      </div>
+
+      <div class="grid" id="bestsellersGrid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="cols">
+        <div>
+          <h4 style="margin:0 0 8px 0">Get to Know Us</h4>
+          <a href="#">About</a>
+          <a href="#">Careers</a>
+          <a href="#">Press Releases</a>
+        </div>
+        <div>
+          <h4 style="margin:0 0 8px 0">Make Money with Us</h4>
+          <a href="#">Sell on ShopLand</a>
+          <a href="#">Advertise Your Products</a>
+        </div>
+        <div>
+          <h4 style="margin:0 0 8px 0">Customer Service</h4>
+          <a href="#">Help</a>
+          <a href="#">Returns</a>
+          <a href="#">Order Tracking</a>
+        </div>
+        <div>
+          <h4 style="margin:0 0 8px 0">Contact</h4>
+          <a href="#">Contact Us</a>
+          <a href="#">Locations</a>
+        </div>
+      </div>
+      <div style="margin-top:12px;color:var(--muted);font-size:13px">© ShopLand</div>
+    </div>
+  </footer>
+
+  <script>
+    // Minimal client-side logic: carousel + sample product population + simple search demo
+    (function(){
+      const slides = Array.from(document.querySelectorAll('.carousel .slide'));
+      const dotsEl = document.getElementById('dots');
+      const carousel = document.getElementById('carousel');
+      let idx = 0, timer;
+
+      function renderDots(){
+        dotsEl.innerHTML = '';
+        slides.forEach((s,i)=>{
+          const d = document.createElement('div');
+          d.className = 'dot' + (i===idx ? ' active':'');
+          d.addEventListener('click', ()=>goTo(i));
+          dotsEl.appendChild(d);
+        });
+      }
+      function goTo(i){
+        idx = i % slides.length;
+        carousel.scrollLeft = carousel.offsetWidth * idx;
+        renderDots();
+        resetTimer();
+      }
+      function next(){ goTo((idx+1) % slides.length) }
+      function resetTimer(){ clearInterval(timer); timer = setInterval(next, 4000) }
+
+      // init
+      renderDots();
+      resetTimer();
+      window.addEventListener('resize', ()=>{ carousel.scrollLeft = carousel.offsetWidth * idx });
+
+      // Product data (sample)
+      const sample = [
+        {id:1,title:'Wireless Headphones',price:'$49.99',img:'https://via.placeholder.com/160?text=Headphones',rating:4.5},
+        {id:2,title:'Smart Speaker',price:'$29.99',img:'https://via.placeholder.com/160?text=Speaker',rating:4.2},
+        {id:3,title:'Stainless Steel Kettle',price:'$24.99',img:'https://via.placeholder.com/160?text=Kettle',rating:4.7},
+        {id:4,title:'Bluetooth Mouse',price:'$15.99',img:'https://via.placeholder.com/160?text=Mouse',rating:4.1},
+        {id:5,title:'Novel: The Adventure',price:'$9.99',img:'https://via.placeholder.com/160?text=Book',rating:4.8},
+        {id:6,title:'LED Desk Lamp',price:'$19.99',img:'https://via.placeholder.com/160?text=Lamp',rating:4.3}
+      ];
+
+      function renderGrid(el, items){
+        el.innerHTML = '';
+        items.forEach(p=>{
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML = `
+            <img src="${p.img}" alt="${p.title}">
+            <div class="title">${p.title}</div>
+            <div class="price">${p.price}</div>
+            <div class="rating">${'★'.repeat(Math.round(p.rating))} <span style="color:var(--muted);font-size:12px">(${p.rating})</span></div>
+            <div class="cta">
+              <button class="btn primary" data-id="${p.id}">Add to cart</button>
+              <button class="btn ghost" data-id="${p.id}">View</button>
+            </div>`;
+          el.appendChild(card);
+        });
+      }
+
+      renderGrid(document.getElementById('dealsGrid'), sample.slice(0,4));
+      renderGrid(document.getElementById('bestsellersGrid'), sample.slice(2));
+
+      // Search demo: filters by title contains
+      document.getElementById('searchBtn').addEventListener('click', ()=>{
+        const q = document.getElementById('searchInput').value.trim().toLowerCase();
+        if(!q){ renderGrid(document.getElementById('dealsGrid'), sample.slice(0,4)); return }
+        const results = sample.filter(p=>p.title.toLowerCase().includes(q));
+        renderGrid(document.getElementById('dealsGrid'), results.length?results:[{id:0,title:'No results',price:'',img:'https://via.placeholder.com/160?text=No+Results',rating:0}]);
+      });
+
+      // simple cart click handler (demo)
+      document.body.addEventListener('click', e=>{
+        if(e.target && e.target.matches('.btn.primary')){
+          const id = e.target.dataset.id;
+          alert('Added product '+id+' to cart (demo)');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+// ...existing code...
